@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <script type="text/javascript" src="{{ url_for('static', filename = 'log_sales.js') }}"></script>
+    <script>
+        let data = {{data|tojson}}
+    </script>
+
+    <div class="row" id="input-container">
+        <label for="inputPassword" class="col-sm-3 col-form-label text-center" id="text-label">Log your paper sales:</label>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" placeholder="Client" aria-label="Client" id="client-text-form">
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control" type="text" placeholder="# Reams" aria-label="#Reams", id="reams-text-form">
+        </div>
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-primary" id="submit_sale">Submit</button>
+        </div>
+    </div>
+
+    <div class="row" id="clients-container">
+        <div class="col">
+            <div class="row" id="sale-list-header">
+                <div class="col-sm-2 text-left">
+                    <strong class="sale-text">Name</strong>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4 text-left">
+                    <strong class="sale-text">Company</strong>
+                </div>
+               
+                <div class="col-sm-2">
+                    <strong class="sale-text">Reams #</strong> 
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div id="sale-list"></div>
+        </div>
+    </div>
+{% endblock %}
+
